@@ -1,8 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import { registerValidation } from "./validation.js";
+import { registerValidation, loginValidation } from "./validation.js";
 import * as userController from "./controllers/UserController.js";
 import cors from "cors";
 
@@ -19,11 +17,15 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-const port= 3001; // порт 3000 занят реактом
+const port= 4000; // порт 3000 занят реактом
 
 app.use(express.json());
 
 app.post('/reg', registerValidation, userController.register);
+app.post('/login', loginValidation, userController.login);
+app.get('/checkAuth', userController.checkAuth);
+
+app.get('/settings', userController.getSettings);
 
 app.listen(port, (e) => {
     console.log((!e) ? ('listening at localhost:'+port) : ("fuck up? " + e.message));

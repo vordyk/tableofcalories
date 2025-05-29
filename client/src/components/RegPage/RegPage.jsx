@@ -2,8 +2,14 @@ import React from 'react';
 import classes from "./RegPage.module.css";
 import TextInput from "../TextInput/TextInput";
 import Button from "../Button/Button";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
 
 const RegPage = () => {
+    if (localStorage.getItem("token")) {
+        window.location.href = "/";
+    }
+
     const [username, setUsername] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -18,10 +24,25 @@ const RegPage = () => {
 
         console.log(data)
 
-        const res = fetch("http://localhost:3001/reg", {
+        const res = fetch("http://localhost:4000/reg", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(data),
-        })
+        }).then(
+            (value) => {
+                if (value instanceof Error) {
+                    console.log(value);
+                    alertify.error(value.message);
+                } else {
+                    console.log(value);
+                    alertify.success("Регистрация прошла успешна. Нажмите для перехода на страницу входа.", 3000, () => {
+                        setTimeout(window.location.href = "/login", 3000);
+                    })
+                }
+            }
+        )
 
         console.log(res)
     }

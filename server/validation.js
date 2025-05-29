@@ -5,3 +5,7 @@ export const registerValidation = [
     body("password").isLength({min:4, max:32}),
     body("username").isLength({min:4, max:32}),
 ]
+
+export const loginValidation = [
+    body("email").isEmail(),
+]
