@@ -1,0 +1,29 @@
+.input {
+    border: 3px solid #4c7322;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.input::placeholder {
+    text-align: center;
+}
+
+.input:focus {
+    background-color: #ececec;
+    outline: none;
+}
+
+.inputmini {
+    width: 60px;
+}
+
+.inputdef {
+    width: 400px;
+    height: 40px;
+}
+
+@media (max-width: 430px) {
+    .input {
+        width: 300px;
+    }
+}
