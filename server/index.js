@@ -25,6 +25,8 @@ app.post('/reg', registerValidation, userController.register);
 app.post('/login', loginValidation, userController.login);
 app.get('/checkAuth', userController.checkAuth);
 
+app.delete('/users', userController.deleteUser);
+
 app.get('/settings', userController.getSettings);
 
 app.listen(port, (e) => {

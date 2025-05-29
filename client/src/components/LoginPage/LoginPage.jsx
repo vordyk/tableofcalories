@@ -29,6 +29,7 @@ const LoginPage = () => {
 
         if (!data.ok) {
             alertify.error(data.message);
+            return;
         }
 
         alertify.success("Авторизация прошла успешно.");

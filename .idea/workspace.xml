@@ -5,30 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e5e7209-8108-40dd-9050-9ea2c9c6ed2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/LogoutButton/LogoutButton.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/LogoutButton/LogoutButton.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/TabSection/TabSection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/TabSection/TabSection.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/TabSection/TabSectionLi.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/Error.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/Settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/SettingsPage/Modal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/LoginPage/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LoginPage/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RegPage/RegPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RegPage/RegPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/UserController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="JSX File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -105,7 +89,8 @@
       <workItem from="1748419538947" duration="864000" />
       <workItem from="1748420427095" duration="9697000" />
       <workItem from="1748456699373" duration="4959000" />
-      <workItem from="1748503356047" duration="6436000" />
+      <workItem from="1748503356047" duration="9788000" />
+      <workItem from="1748537576303" duration="2451000" />
     </task>
     <servers />
   </component>

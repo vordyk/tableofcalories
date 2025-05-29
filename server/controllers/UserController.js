@@ -211,3 +211,49 @@ export const getSettings = async (req, res) => {
         })
     }
 }
+
+export const deleteUser = async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+
+        if (!token) {
+            return res.status(401).json({
+                ok: false,
+                message: "Нет авторизации"
+            });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+
+        const user = await UserModel.findByIdAndDelete(decoded._id);
+
+        if (!user) {
+            return res.status(404).json({
+                ok: false,
+                message: "Пользователь не найден"
+            });
+        }
+
+        await SettingsModel.deleteOne({ userId: decoded._id });
+
+        res.json({
+            ok: true,
+            message: "Пользователь успешно удален."
+        });
+
+    } catch (e) {
+        await ErrorModel.create({
+            message: e.message,
+            stack: e.stack,
+            controller: "UserController.deleteUser",
+            meta: {
+                headers: req.headers,
+                msg: "Ошибка удаления пользователя"
+            }
+        })
+        res.status(500).json({
+            ok: false,
+            message: "Ошибка удаления пользователя, возможно сервер перегружен. Попробуйте позже.",
+        })
+    }
+}
