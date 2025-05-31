@@ -1,0 +1,55 @@
+.fileInput {
+    display: none;
+}
+
+.label {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    display: block;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 3px solid #4c7322;
+}
+
+.span {
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: #4c7322;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100px;
+}
+
+.span1  {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 30px;
+    background-color: #4c7322;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100px;
+}
+
+.uploadButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    background-color: transparent;
+    display: block;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 3px solid #4c7322;
+}
+
+.labelHidden {
+    border: none;
+    background: transparent;
+}

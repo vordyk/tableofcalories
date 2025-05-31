@@ -7,10 +7,12 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
 import { Navigate } from "react-router-dom";
+import LogoutButton from "../LogoutButton/LogoutButton";
 
 const modalContent = {
     'Безопасность': {
-        text: 'Здесь настройки безопасности.'
+        text: 'Здесь настройки безопасности.',
+        a: 'http://localhost:3000/security',
     },
     'Настройки интерфейса': {
         text: 'Здесь настройки интерфейса.'
@@ -72,6 +74,7 @@ const SettingsPage = () => {
                         {item}
                     </li>
                 ))}
+                <LogoutButton/>
             </ul>
             {openModal && (
                 <Modal onClose={handleClose}>

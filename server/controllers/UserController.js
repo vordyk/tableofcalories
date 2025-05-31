@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import ErrorModel from '../models/Error.js';
 import SettingsModel from "../models/Settings.js";
+import { Storage } from "megajs";
 
 export const register = async (req, res) => {
     try {
@@ -254,6 +255,125 @@ export const deleteUser = async (req, res) => {
         res.status(500).json({
             ok: false,
             message: "Ошибка удаления пользователя, возможно сервер перегружен. Попробуйте позже.",
+        })
+    }
+}
+
+export const uploadAvatar = async (req, res) => {
+    const email = "vordy262@gmail.com";
+    const password = "Roma28112011!";
+
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ ok: false, message: "Нет авторизации" });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+        const user = await UserModel.findById(decoded._id);
+        if (!user) {
+            return res.status(404).json({ ok: false, message: "Пользователь не найден" });
+        }
+
+        const file = req.file;
+        if (!file) {
+            return res.status(400).json({ ok: false, message: "Файл не загружен" });
+        }
+
+        const storage = new Storage({ email, password });
+        await storage.ready;
+
+        const fileName = `${user._id}_${Date.now()}.jpg`;
+        const uploadStream = storage.upload({ name: fileName, allowUploadBuffering: true });
+        uploadStream.end(file.buffer);
+
+        uploadStream.on('complete', async () => {
+            user.avatar = fileName;
+            await user.save();
+
+            res.json({
+                ok: true,
+                message: 'Аватар успешно загружен!',
+                avatarFileName: fileName
+            });
+        });
+
+        uploadStream.on('error', (err) => {
+            res.status(500).json({ ok: false, message: 'Ошибка загрузки: ' + err.message });
+        });
+
+    } catch (e) {
+        await ErrorModel.create({
+            message: e.message,
+            stack: e.stack,
+            controller: "UserController.uploadAvatar",
+            meta: { headers: req.headers, msg: "Ошибка загрузки аватара пользователя" }
+        });
+        res.status(500).json({ ok: false, message: "Ошибка загрузки аватара, попробуйте позже." });
+    }
+}
+
+export const getAvatar = async (req, res) => {
+    const email = "vordy262@gmail.com";
+    const password = "Roma28112011!";
+
+    try {
+        const user = await UserModel.findById(req.params.userId);
+        if (!user || !user.avatar) {
+            return res.status(404).send("Аватар не найден");
+        }
+
+        const storage = new Storage({ email, password });
+        await storage.ready;
+
+        const file = storage.root.children.find(f => f.name === user.avatar);
+        if (!file) {
+            return res.status(404).send("Файл не найден в MEGA");
+        }
+
+        const stream = file.download();
+        res.setHeader('Content-Type', 'image/jpeg');
+        stream.pipe(res);
+    } catch (e) {
+        res.status(500).send("Ошибка получения аватара");
+    }
+};
+
+export const getUser = async (req, res) => {
+    try {
+        const token = req.params.token;
+        if (!token) {
+            return res.status(401).json({
+                ok: false,
+                message: "Нет авторизации"
+            });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+
+        const user = await UserModel.findById(decoded._id);
+        if (!user) {
+            return res.status(404).json({
+                ok: false,
+                message: "Пользователь не найден"
+            });
+        }
+
+        const { password, ...userData } = user._doc;
+
+        res.json({
+            ok: true,
+            ...userData
+        });
+    } catch (e) {
+        await ErrorModel.create({
+            message: e.message,
+            stack: e.stack,
+            controller: "UserController.getUser",
+            meta: {
+                params: req.params,
+                msg: "Ошибка получения пользователя"
+            }
         })
     }
 }
