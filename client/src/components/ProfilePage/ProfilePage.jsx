@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import classes from './ProfilePage.module.css';
-import LogoutButton from '../LogoutButton/LogoutButton';
 import TabSection from "../TabSection/TabSection";
 import FileInput from "../FileInput/FileInput";
 import LoadingPage from "../LoadingPage/LoadingPage";
@@ -12,13 +11,11 @@ const ProfilePage = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             const token = localStorage.getItem("token");
-            // Получаем данные пользователя
             const res = await fetch("http://localhost:4000/users/" + token, {
                 headers: { "Content-Type": "application/json" }
             });
             const result = await res.json();
 
-            // Получаем аватар, если есть поле avatar
             if (result.avatar) {
                 const avatarRes = await fetch("http://localhost:4000/getAvatar/" + result._id);
                 if (avatarRes.ok) {
@@ -32,7 +29,11 @@ const ProfilePage = () => {
         fetchProfile();
     }, []);
 
-    if (!data) return <LoadingPage />;
+    if (!data) return <><LoadingPage /> <TabSection /></>;
+
+    console.log(data)
+
+    document.cookie = `username=${data.username}; path=/; max-age=3600`
 
     return (
         <div className={classes.container}>
