@@ -3,7 +3,7 @@ import {useState} from "react";
 import classes from './FileInput.module.css';
 import alertify from "alertifyjs";
 
-const FileInput = () => {
+const FileInput = ({ onDoubleClick }) => {
     const [file, setFile] = useState(null);
 
     const handleFileChange = (event) => {

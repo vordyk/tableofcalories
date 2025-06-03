@@ -8,6 +8,7 @@ const LogoutButton = () => {
         <>
             <button className={classes.logoutButton} onClick={()=> {
                 localStorage.removeItem('token');
+                localStorage.removeItem("profile");
                 window.location.href = '/login';
             }}>
                 Выйти

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './MainPage.module.css';
 import TabSection from "../TabSection/TabSection";
+import alertify from 'alertifyjs';
 
 console.log(localStorage.getItem('token'));
 
@@ -10,15 +11,51 @@ const MainPage = () => {
         return new Date().toLocaleDateString("ru-RU", options);
     };
 
+    const [data, setData] = React.useState(null);
+
+    useEffect(
+         () => {
+
+
+            const fetchData = async () => {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    alertify.error('Пожалуйста, войдите в систему.');
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`http://localhost:4000/nutrients/${token}`, {
+                        headers: {'Content-Type': 'application/json'}
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Ошибка при получении данных пользователя');
+                    }
+
+                    const result = await response.json();
+                    setData(result);
+                    console.log(result);
+                } catch (error) {
+                    console.error('Ошибка:', error);
+                    alertify.error('Не удалось загрузить данные пользователя.');
+                }
+            }
+             fetchData();
+         }
+            , []);
+
     const carb = 100;
     const prot = 100;
     const fat = 50;
     const fiber = 10;
 
-    const carbGoal = 100;
-    const protGoal = 100;
-    const fatGoal = 50;
-    const fiberGoal = 10;
+    console.log(data.calories)
+
+    const carbGoal = data.carbs;
+    const protGoal = data.proteins;
+    const fatGoal = data.fats;
+    const fiberGoal = data.fiber;
 
     const addMeal = (id) => {
         switch (id) {

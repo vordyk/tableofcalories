@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 import ErrorModel from '../models/Error.js';
 import SettingsModel from "../models/Settings.js";
 import { Storage } from "megajs";
+import NutrientsModel from "../models/Nutrients.js";
 
 export const register = async (req, res) => {
     try {
@@ -34,6 +35,11 @@ export const register = async (req, res) => {
             await SettingsModel.create({
                 userId: user._id
             });
+
+            await NutrientsModel.create({
+               userId: user._id,
+            });
+
         } catch (error) {
             await ErrorModel.create({
                 message: error.message,
@@ -374,6 +380,82 @@ export const getUser = async (req, res) => {
                 params: req.params,
                 msg: "Ошибка получения пользователя"
             }
+        })
+    }
+}
+
+export const updateUser = async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).json({ ok: false, message: "Нет авторизации" });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+        const user = await UserModel.findById(decoded._id);
+        if (!user) {
+            return res.status(404).json({ ok: false, message: "Пользователь не найден" });
+        }
+
+        const { username, email } = req.body;
+        if (username) user.username = username;
+        if (email) user.email = email;
+
+        await user.save();
+
+        res.json({
+            ok: true,
+            message: "Пользователь успешно обновлен",
+            user: { _id: user._id, username: user.username, email: user.email }
+        });
+    } catch (e) {
+        await ErrorModel.create({
+            message: e.message,
+            stack: e.stack,
+            controller: "UserController.UpdateUser",
+            meta: { headers: req.headers, msg: "Ошибка обновления пользователя" }
+        });
+        res.status(500).json({ ok: false, message: "Ошибка обновления пользователя, попробуйте позже." });
+    }
+}
+
+export const getNutrients = async (req, res) => {
+    try {
+        const token = req.params.token;
+        if (!token) {
+            return res.status(401).json({
+                ok: false,
+                message: "Нет авторизации"
+            });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+
+        const nutrients = await NutrientsModel.findOne({ userId: decoded._id });
+        if (!nutrients) {
+            return res.status(404).json({
+                ok: false,
+                message: "Пользовательские нутриенты не найдены"
+            });
+        }
+
+        res.json({
+            ok: true,
+            ...nutrients._doc
+        });
+    } catch (e) {
+        await ErrorModel.create({
+            message: e.message,
+            stack: e.stack,
+            controller: "UserController.getNutrients",
+            meta: {
+                params: req.params,
+                msg: "Ошибка получения пользовательских нутриентов"
+            }
+        })
+        res.status(500).json({
+            ok: false,
+            message: "Ошибка получения пользовательских нутриентов, попробуйте позже.",
         })
     }
 }

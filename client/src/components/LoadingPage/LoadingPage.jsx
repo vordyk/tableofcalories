@@ -15,7 +15,7 @@ const LoadingPage = () => {
             <h1 className={classes.title}>Загрузка...</h1>
             <span className={classes.loader}></span>
             {showWarning && (
-                <p className={classes.p}>Загрузка необычно долгая, проверьте своё интернет-соединение.</p>
+                <p className={classes.p}>Загрузка необычно долгая, проверьте своё интернет-соединение, <a href="/">вернуться на главную.</a> </p>
             )}
         </div>
     );

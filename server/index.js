@@ -4,6 +4,7 @@ import { registerValidation, loginValidation } from "./validation.js";
 import * as userController from "./controllers/UserController.js";
 import cors from "cors";
 import multer from "multer";
+import user from "./models/User.js";
 
 const upload = multer();
 
@@ -31,6 +32,9 @@ app.get('/checkAuth', userController.checkAuth);
 app.get('/users/:token', userController.getUser);
 app.get('/getAvatar/:userId', userController.getAvatar);
 app.delete('/users', userController.deleteUser);
+app.put('/users', userController.updateUser);
+
+app.get('/nutrients/:token', userController.getNutrients);
 
 app.get('/settings', userController.getSettings);
 

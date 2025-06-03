@@ -5,76 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e5e7209-8108-40dd-9050-9ea2c9c6ed2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/FileInput/FileInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/FileInput/FileInput.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/EditPage/EditPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/EditPage/EditPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/SupportPage/SupportPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/models/Nutrients.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/fox.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.bbccaf26.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/css/main.bbccaf26.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.821d4ae0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.821d4ae0.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/build/static/js/main.821d4ae0.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/FileInput/FileInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FileInput/FileInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/LoadingPage/LoadingPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LoadingPage/LoadingPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/LogoutButton/LogoutButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LogoutButton/LogoutButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/fox.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/Button/Button.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/Button/Button.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/LoginPage/LoginPage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/LoginPage/LoginPage.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/LogoutButton/LogoutButton.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/LogoutButton/LogoutButton.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/MainPage/MainPage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/MainPage/MainPage.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/ProfilePage/ProfilePage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/ProfilePage/ProfilePage.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/RegPage/RegPage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/RegPage/RegPage.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/SettingsPage/Modal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/SettingsPage/SettingsPage.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/SettingsPage/SettingsPage.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/TabSection/TabSection.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/TabSection/TabSection.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/TabSection/TabSectionLi.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/TextInput/TextInput.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/components/TextInput/TextInput.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/client/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/server/controllers/UserController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/server/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/server/models/Error.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/server/models/Settings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/server/models/User.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy_for_hosting_do_not_open/server/validation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/UserController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/User.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="JSX File" />
         <option value="CSS File" />
+        <option value="JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -107,7 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/vordy/WebstormProjects/fullsite&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vordy/WebstormProjects/tableofcalorie&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -153,7 +97,11 @@
       <workItem from="1748456699373" duration="4959000" />
       <workItem from="1748503356047" duration="9788000" />
       <workItem from="1748537576303" duration="4214000" />
-      <workItem from="1748675334731" duration="11220000" />
+      <workItem from="1748675334731" duration="14293000" />
+      <workItem from="1748786884348" duration="4341000" />
+      <workItem from="1748861668738" duration="9267000" />
+      <workItem from="1748888510564" duration="4080000" />
+      <workItem from="1748933235965" duration="4418000" />
     </task>
     <servers />
   </component>
