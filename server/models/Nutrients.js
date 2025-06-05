@@ -35,6 +35,31 @@ const NutrientsSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
+    caloriesGoal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    proteinGoal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    carbsGoal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    fatsGoal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    fiberGoal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
 }, { timestamps: true });
 
 export default mongoose.model('Nutrients', NutrientsSchema);

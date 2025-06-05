@@ -5,7 +5,7 @@ import FileInput from "../FileInput/FileInput";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Button from "../Button/Button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faRotateRight, faPenToSquare, faEnvelope, faBackward } from "@fortawesome/free-solid-svg-icons";
+import { faRotateRight, faPenToSquare, faBullseye, faBackward } from "@fortawesome/free-solid-svg-icons";
 
 const ProfilePage = () => {
     function reloadPage() {
@@ -91,7 +91,7 @@ const ProfilePage = () => {
                 <div className={classes.menuBtn}>
                     <Button onClick={reloadPage} title="Нажмите если завис профиль."><FontAwesomeIcon icon={faRotateRight} /></Button>
                     <Button onClick={edit} title="Редактировать профиль."><FontAwesomeIcon icon={faPenToSquare} /></Button>
-                    <Button onClick={() => window.location.href="/ts"} title="Тех.поддержка"><FontAwesomeIcon icon={faEnvelope} /></Button>
+                    <Button onClick={() => window.location.href="/goals"} title="Цели."><FontAwesomeIcon icon={faBullseye} /></Button>
                 </div>
             </ul>
             <TabSection />

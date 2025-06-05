@@ -459,3 +459,56 @@ export const getNutrients = async (req, res) => {
         })
     }
 }
+
+export const updateNutrientsGoals = async (req, res) => {
+    try {
+        const token = req.params.token;
+        if (!token) {
+            return res.status(401).json({
+                ok: false,
+                message: "Нет авторизации"
+            });
+        }
+
+        const decoded = jwt.verify(token, 'secret');
+
+        const nutrients = await NutrientsModel.findOne({ userId: decoded._id });
+        if (!nutrients) {
+            return res.status(404).json({
+                ok: false,
+                message: "Пользовательские нутриенты не найдены"
+            });
+        }
+
+        const { calories, carbs, fats, protein, fiber } = req.body;
+
+        nutrients.caloriesGoal = calories || nutrients.caloriesGoal;
+        nutrients.carbsGoal = carbs || nutrients.carbsGoal;
+        nutrients.fatsGoal = fats || nutrients.fatsGoal;
+        nutrients.proteinGoal = protein || nutrients.proteinGoal;
+        nutrients.fiberGoal = fiber || nutrients.fiberGoal;
+
+        await nutrients.save();
+
+        res.json({
+            ok: true,
+            message: "Цели по питательным веществам успешно обновлены",
+            ...nutrients._doc
+        });
+    } catch (e) {
+        await ErrorModel.create({
+            message: e.message,
+            stack: e.stack,
+            controller: "UserController.updateNutrientsGoals",
+            meta: {
+                params: req.params,
+                body: req.body,
+                msg: "Ошибка обновления целей по питательным веществам"
+            }
+        })
+        res.status(500).json({
+            ok: false,
+            message: "Ошибка обновления целей по питательным веществам, попробуйте позже.",
+        })
+    }
+}

@@ -35,6 +35,7 @@ app.delete('/users', userController.deleteUser);
 app.put('/users', userController.updateUser);
 
 app.get('/nutrients/:token', userController.getNutrients);
+app.put('/nutrientsGoals/:token', userController.updateNutrientsGoals);
 
 app.get('/settings', userController.getSettings);
 

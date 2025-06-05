@@ -7,6 +7,8 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import SettingsPage from "./components/SettingsPage/SettingsPage";
 import EditPage from "./components/EditPage/EditPage";
 import SupportPage from "./components/SupportPage/SupportPage";
+import GoalsPage from "./components/GoalsPage/GoalsPage";
+import SearchPage from "./components/SearchPage/SearchPage";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -33,7 +35,8 @@ function App() {
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/edit" element={<EditPage />} />
-                <Route path="/ts" element={<SupportPage />} />
+                <Route path="/goals" element={<GoalsPage />} />
+                <Route path="/search" element={<SearchPage />} />
             </Routes>
         </Router>
       </>

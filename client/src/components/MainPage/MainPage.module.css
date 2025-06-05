@@ -1,13 +1,13 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fff;
-    color: #333;
+    background-color: rgba(76, 115, 34, 0.58);
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #ffefe6;
+.header {
+    color: rgba(255, 255, 255, 0.89);
+    background-color: #4c7322;
     padding: 20px;
     text-align: center;
     font-size: 22px;
@@ -22,11 +22,13 @@ header {
     justify-content: space-between;
     font-size: 20px;
     margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.89);
 }
 
 .meals {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 .meal {
@@ -45,7 +47,8 @@ header {
 
 .nutrients {
     padding: 20px;
-    background-color: #ffefe6;
+    background-color: #4c7322;
+    color: rgba(255, 255, 255, 0.89);
     text-align: center;
 }
 

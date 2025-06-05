@@ -43,6 +43,8 @@ const modalContent = {
             if (response.ok) {
                 alertify.success(data.message, 1, () => {
                     localStorage.removeItem("token");
+                    localStorage.removeItem("profile");
+                    localStorage.removeItem("nutrientGoals");
                     window.location.reload();
                 });
             } else {
