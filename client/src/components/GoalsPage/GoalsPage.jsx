@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import alertify from "alertifyjs";
 
 const GoalsPage = () => {
-    const nutrientGoals = localStorage.getItem('nutrientGoals');
+    const nutrientGoals = sessionStorage.getItem('nutrients');
     const data = JSON.parse(nutrientGoals);
 
     const [calories, setCalories] = React.useState(data.calories);
@@ -39,7 +39,7 @@ const GoalsPage = () => {
 
         if (res.ok) {
             alertify.success("Цели успешно изменены", 3, () => {
-                localStorage.setItem("nutrientGoals", JSON.stringify(goals));
+                sessionStorage.setItem("nutrientGoals", JSON.stringify(goals));
                 window.location.href = '/profile';
             });
         } else {

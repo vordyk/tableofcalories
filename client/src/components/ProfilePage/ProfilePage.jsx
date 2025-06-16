@@ -80,12 +80,20 @@ const ProfilePage = () => {
                 }
                 { !data.avatar || avatarInput ?
                 <div className={classes.userInfo}>
+                    <li className={classes.dataItems}>ID:</li>
+                    <li className={classes.dataItems}>{data._id}</li>
+                    <li className={classes.dataItems}>Username:</li>
                     <li className={classes.dataItems}>{data.username || 'Имя пользователя не указано'}</li>
-                    <li className={classes.dataItems}>{data.email || 'Email не указан'}</li>
+                    <li className={classes.dataItems}>Email:</li>
+                    <li className={classes.dataItems}>Email: {data.email || 'Email не указан'}</li>
                 </div> :
                     <>
+                        <li className={classes.dataItems}>ID:</li>
+                        <li className={classes.dataItems}>{data._id}</li>
+                        <li className={classes.dataItems}>Username:</li>
                         <li className={classes.dataItems}>{data.username || 'Имя пользователя не указано'}</li>
-                        <li className={classes.dataItems}>{data.email || 'Email не указан'}</li>
+                        <li className={classes.dataItems}>Email:</li>
+                        <li className={classes.dataItems}>Email: {data.email || 'Email не указан'}</li>
                     </>
                 }
                 <div className={classes.menuBtn}>

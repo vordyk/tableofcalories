@@ -1,0 +1,19 @@
+.card {
+    width: 300px;
+    height: 250px;
+    border: 3px solid #2638BF;
+    border-radius: 10px;
+}
+
+.cardTitle {
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.cardImage {
+    height: 100px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}

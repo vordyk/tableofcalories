@@ -2,7 +2,7 @@
     width: 100px;
     height: 30px;
     color: white;
-    background: #4c7322;
+    background: #2A7B9B;
     border-radius: 10px;
     border: none;
     transition: 0.8s;
@@ -10,7 +10,7 @@
 }
 
 .btn:hover {
-    background: rgba(76, 115, 34, 0.76);
+    background: #2638BF;
 }
 
 .btn:active {

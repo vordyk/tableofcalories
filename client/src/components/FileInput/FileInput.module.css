@@ -10,14 +10,14 @@
     display: block;
     cursor: pointer;
     border-radius: 8px;
-    border: 3px solid #4c7322;
+    border: 3px solid #2638BF;
 }
 
 .span {
     position: absolute;
     width: 20px;
     height: 3px;
-    background-color: #4c7322;
+    background-color: #2A7B9B;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -29,7 +29,7 @@
     display: block;
     width: 3px;
     height: 30px;
-    background-color: #4c7322;
+    background-color: #2A7B9B;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -46,7 +46,7 @@
     display: block;
     cursor: pointer;
     border-radius: 8px;
-    border: 3px solid #4c7322;
+    border: 3px solid #2638BF;
 }
 
 .labelHidden {

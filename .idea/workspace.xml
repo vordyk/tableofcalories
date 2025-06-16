@@ -5,20 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e5e7209-8108-40dd-9050-9ea2c9c6ed2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/GoalsPage/GoalsPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/GoalsPage/GoalsPage.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/SearchPage/SearchPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/SearchPage/SearchPage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ActiveSection/ActiveSection.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ActiveSection/ActiveSection.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ActiveSection/ActiveSectionWidget.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Card/Card.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Card/Card.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/LogoutButton/LogoutButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LogoutButton/LogoutButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AddItemPage/AddItemPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddItemPage/AddItemPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AddItemPage/AddItemPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddItemPage/AddItemPage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Button/Button.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Button/Button.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/FileInput/FileInput.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/FileInput/FileInput.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/GoalsPage/GoalsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/GoalsPage/GoalsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/LoadingPage/LoadingPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/LoadingPage/LoadingPage.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MainPage/MainPage.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SettingsPage/SettingsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/UserController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/Nutrients.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Nutrients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfilePage/ProfilePage.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/TabSection/TabSection.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/TabSection/TabSection.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="JSX File" />
         <option value="CSS File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -104,7 +108,11 @@
       <workItem from="1748888510564" duration="4080000" />
       <workItem from="1748933235965" duration="12825000" />
       <workItem from="1749060599016" duration="2634000" />
-      <workItem from="1749117846957" duration="606000" />
+      <workItem from="1749117846957" duration="15806000" />
+      <workItem from="1749194874724" duration="15030000" />
+      <workItem from="1749365992627" duration="3577000" />
+      <workItem from="1750010170032" duration="3410000" />
+      <workItem from="1750059513208" duration="9708000" />
     </task>
     <servers />
   </component>

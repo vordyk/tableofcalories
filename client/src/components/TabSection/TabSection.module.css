@@ -11,9 +11,10 @@
 }
 
 .tabSectionMenu {
-    background-color: #f0f0f0;
-    border-top: 1px solid #ccc;
+    background: #2A7B9B;
+    background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(38, 56, 191, 0.67) 79%);
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .tabSectionMenuItems {
@@ -39,5 +40,5 @@
 
 .active {
     background: #e0e0e0;
-    color: #4c7322;
+    color: rgba(38, 56, 191, 1);
 }

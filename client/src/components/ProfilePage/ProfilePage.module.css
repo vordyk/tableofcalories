@@ -32,25 +32,27 @@
 }
 
 .Items {
-    border: 3px solid #4c7322;
+    border: 3px solid #2638BF;
     width: 350px;
-    height: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    border-radius: 10px;
 }
 
 .ItemsAvatar {
-    border: 3px solid #4c7322;
+    border: 3px solid #2638BF;
     width: 350px;
-    height: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    border-radius: 10px;
 }
 
 .userInfo {
@@ -72,7 +74,7 @@
     height: 185px;
     border-radius: 50%;
     margin-bottom: 20px;
-    border: 4px dashed #748c22;
+    border: 4px dashed #2638BF;
     animation: spin 8s linear infinite;
 }
 
@@ -88,10 +90,31 @@
     cursor: pointer;
     border-radius: 8px;
     margin-top: 90px;
-    border: 3px solid #4c7322;
+    border: 3px solid #2638BF;
 }
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+@media (max-height: 700px) {
+    .Items {
+        height: 400px;
+    }
+    .ItemsAvatar {
+        height: 400px;
+    }
+    .avatarImage {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 5px;
+    }
+    .Items {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .ItemsAvatar {
+        font-size: 0.8rem;
+    }
 }

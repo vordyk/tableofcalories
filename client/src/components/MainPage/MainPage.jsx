@@ -5,6 +5,8 @@ import alertify from 'alertifyjs';
 import LoadingPage from "../LoadingPage/LoadingPage";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus, faBreadSlice, faUtensils, faBowlFood} from "@fortawesome/free-solid-svg-icons";
+import ProgressBar from "./ProgressBar";
+import ActiveSection from "../ActiveSection/ActiveSection";
 
 console.log(localStorage.getItem('token'));
 
@@ -14,12 +16,13 @@ const MainPage = () => {
         return new Date().toLocaleDateString("ru-RU", options);
     };
 
-    const [data, setData] = React.useState(null);
+    const [nutrients, setNutrients] = React.useState(null);
+
 
     useEffect(() => {
-        const nutrientGoals = localStorage.getItem('nutrientGoals');
-        if (nutrientGoals) {
-            setData(JSON.parse(nutrientGoals));
+        const storageNutrients = sessionStorage.getItem('nutrients');
+        if (storageNutrients) {
+            setNutrients(JSON.parse(storageNutrients));
         } else {
             const fetchData = async () => {
                 const token = localStorage.getItem('token');
@@ -35,8 +38,8 @@ const MainPage = () => {
                     if (!result.ok) {
                         throw new Error('Ошибка при получении данных пользователя');
                     }
-                    setData(result);
-                    localStorage.setItem('nutrientGoals', JSON.stringify(result)); // кешируем
+                    setNutrients(result);
+                    sessionStorage.setItem('nutrients', JSON.stringify(result)); // кешируем
                 } catch (error) {
                     console.error('Ошибка:', error);
                     alertify.error('Не удалось загрузить данные пользователя.');
@@ -47,21 +50,21 @@ const MainPage = () => {
     }, []);
 
 
-    if (!data) return <LoadingPage></LoadingPage>;
+    if (!nutrients) return <LoadingPage></LoadingPage>;
 
-    console.log(data)
+    const caloriesGoal = nutrients.caloriesGoal;
+    const carbGoal = nutrients.carbsGoal;
+    const proteinGoal = nutrients.proteinGoal;
+    const fatGoal = nutrients.fatsGoal;
+    const fiberGoal = nutrients.fiberGoal;
 
-    const carb = data.carbs;
-    const prot = data.protein;
-    const fats = data.fats;
-    const fiber = data.fiber;
+    const calories = nutrients.calories;
+    const carbs = nutrients.carbs;
+    const protein = nutrients.protein;
+    const fats = nutrients.fats;
+    const fiber = nutrients.fiber;
 
-    const carbGoal = data.carbs;
-    const protGoal = data.protein;
-    const fatGoal = data.fats;
-    const fiberGoal = data.fiber;
-
-    if (carbGoal + protGoal + fatGoal + fiberGoal === 0) {
+    if (carbGoal + proteinGoal + fatGoal + fiberGoal === 0) {
             alertify.warning("Хотите перейти к настройке целей по питательным веществам? <b>Перейдите в профиль и нажмите на кнопку 'Настроить цели'.</b>", 5);
     }
 
@@ -80,8 +83,9 @@ const MainPage = () => {
             <main className={classes.main}>
                 <section className={classes.tracker}>
                     <div className={classes.summary}>
+                        <ProgressBar value={calories} goal={caloriesGoal} />
                         <h2>Прием: <span>0 ккал</span></h2>
-                        <h2>Цель: <span>{data.calories} ккал</span></h2>
+                        <h2>Цель: <span>{caloriesGoal} ккал</span></h2>
                     </div>
                     <div className={classes.meals}>
                         <div className={classes.meal}><span className={classes.icon}><FontAwesomeIcon icon={faBreadSlice} /><span className={classes.add} onClick={toSearch}> <FontAwesomeIcon icon={faPlus} /></span></span> Завтрак <span>0 ккал</span></div>
@@ -94,12 +98,14 @@ const MainPage = () => {
                     <h3>Питательные вещества: </h3>
                     <br/>
                     <ul className={classes.list}>
-                        <li className={classes.item}>Белки: <span>{prot}г /{protGoal}г</span></li>
-                        <li className={classes.item}>Углеводы: <span>{carb}г /{carbGoal}г</span></li>
-                        <li className={classes.item}>Жиры: <span>{fats}г /{fatGoal}г</span></li>
-                        <li className={classes.item}>Клетчатка: <span>{fiber}г /{fiberGoal}г</span></li>
+                        <li className={classes.item}>Белки: <span>{protein} / {proteinGoal}г</span></li>
+                        <li className={classes.item}>Углеводы: <span>{carbs} / {carbGoal}г</span></li>
+                        <li className={classes.item}>Жиры: <span>{fats} / {fatGoal}г</span></li>
+                        <li className={classes.item}>Клетчатка: <span> {fiber} / {fiberGoal}г</span></li>
                     </ul>
                 </section>
+
+                <ActiveSection />
             </main>
         </div>
             <TabSection/>
