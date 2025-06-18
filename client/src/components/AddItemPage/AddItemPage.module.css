@@ -13,14 +13,24 @@
     align-items: center;
     justify-content: center;
     max-width: 600px;
-    border: 3px solid #4c7322;
+    border: 3px solid #2638BF;
     width: 450px;
     height: 530px;
 }
 
 .label {
-    padding-top: 16px;
+    padding-top: 5px;
+    padding-bottom: 10px;
     font-weight: 900;
     width: 100%;
     text-align: center;
 }
+
+.radioInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+

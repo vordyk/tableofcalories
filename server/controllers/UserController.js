@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import UserModel from "../models/User.js";
 import { validationResult } from "express-validator";
 import bcrypt from "bcrypt";

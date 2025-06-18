@@ -1,8 +1,6 @@
 import React from 'react';
 import classes from './ActiveSection.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPersonRunning } from '@fortawesome/free-solid-svg-icons';
-import ActiveSectionWidget from './ActiveSectionWidget';
+import CircleWidget from "../CircleWidget";
 
 // ...
 
@@ -10,14 +8,20 @@ const ActiveSection = () => {
     const activeMinute = 10;
     const activeMinuteGoal = 30;
 
-    const caloriesBurned = 140;
+    const caloriesBurned = 40;
     const caloriesBurnedGoal = 300;
+
+    const series = 1;
 
     return (
         <section className={classes.section}>
-            <ActiveSectionWidget value={caloriesBurned} goal={caloriesBurnedGoal} />
+            <div className={classes.widgets}>
+                <CircleWidget value={caloriesBurned} color="blue" icon="faFire" goal={caloriesBurnedGoal} />
+                <div className={caloriesBurned > 0 && activeMinute > 0 ? classes.series + " " + classes.activeSeries : classes.series + " " + classes.nonActiveSeries}>
+                    {series}
+                </div>
+            </div>
             <div className={classes.active}>
-                <h1 className={classes.activeTitle}>Активность:</h1>
                 <p className={classes.activeText}>Сожженные каллории:</p>
                 <p className={classes.activeText}>{caloriesBurned} / {caloriesBurnedGoal} ккал</p>
                 <p className={classes.activeText}>Активность за сегодня:</p>

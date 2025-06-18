@@ -5,6 +5,7 @@ import * as userController from "./controllers/UserController.js";
 import cors from "cors";
 import multer from "multer";
 import user from "./models/User.js";
+import * as dailyNutrientsController from "./controllers/DailyNutrientsController.js";
 
 const upload = multer();
 
@@ -40,6 +41,9 @@ app.put('/nutrientsGoals/:token', userController.updateNutrientsGoals);
 app.get('/settings', userController.getSettings);
 
 app.post('/uploadAvatar', upload.single('file'), userController.uploadAvatar);
+
+app.post('/dailyNutrients', dailyNutrientsController.addNutrients);
+app.get('/dailyNutrients', dailyNutrientsController.getNutrients);
 
 app.listen(port, (e) => {
     console.log((!e) ? ('listening at localhost:'+port) : ("fuck up? " + e.message));

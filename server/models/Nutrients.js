@@ -10,31 +10,6 @@ const NutrientsSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    calories: {
-        type: Number,
-        required: true,
-        default: 0
-    },
-    protein: {
-        type: Number,
-        required: true,
-        default: 0
-    },
-    carbs: {
-        type: Number,
-        required: true,
-        default: 0
-    },
-    fats: {
-        type: Number,
-        required: true,
-        default: 0
-    },
-    fiber: {
-        type: Number,
-        required: true,
-        default: 0
-    },
     caloriesGoal: {
         type: Number,
         required: true,

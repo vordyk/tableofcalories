@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFire } from '@fortawesome/free-solid-svg-icons';
+import * as fa from '@fortawesome/free-solid-svg-icons';
 
 const getProgressColor = (progress) => {
     const green = Math.round(128 + 127 * progress);
@@ -8,7 +8,7 @@ const getProgressColor = (progress) => {
     return `rgb(${red},${green},100)`;
 };
 
-const CircularProgress = ({ value, goal }) => {
+const CircularProgress = ({ value, goal, icon }) => {
     const radius = 92;
     const stroke = 16;
     const normalizedRadius = radius;
@@ -46,9 +46,9 @@ const CircularProgress = ({ value, goal }) => {
                 top: '50%',
                 transform: 'translate(-50%, -50%)',
                 fontSize: 64,
-                color: '#ff6600'
+                color: {color}
             }}>
-                <FontAwesomeIcon icon={faFire} />
+                <FontAwesomeIcon icon={fa[icon]} />
             </span>
         </div>
     );
