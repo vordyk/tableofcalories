@@ -17,6 +17,10 @@ body {
     padding: 20px;
     text-align: center;
     font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .headerTitle {
@@ -68,7 +72,6 @@ body {
 }
 
 .width {
-    display: none;
     width: 100%;
     height: 80px;
     margin-top: 20px;

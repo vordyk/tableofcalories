@@ -4,10 +4,11 @@ import TabSection from "../TabSection/TabSection";
 import alertify from 'alertifyjs';
 import LoadingPage from "../LoadingPage/LoadingPage";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faPlus, faBreadSlice, faUtensils, faBowlFood} from "@fortawesome/free-solid-svg-icons";
+import {faPlus, faBreadSlice, faUtensils, faBowlFood, faRotateLeft} from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "./ProgressBar";
 import ActiveSection from "./ActiveSection/ActiveSection";
 import NutrientsSection from "./NutrientsSection/NutrientsSection";
+import Button from "../Button/Button";
 
 console.log(localStorage.getItem('token'));
 
@@ -17,8 +18,12 @@ const MainPage = () => {
         return new Date().toLocaleDateString("ru-RU", options);
     };
 
+    const today = new Date().setHours(0, 0, 0, 0);
+
     const [nutrients, setNutrients] = React.useState(null);
     const [dailyNutrients, setDailyNutrients] = React.useState(null);
+    const [date, setDate] = React.useState(today);
+    const [titleDate, setTitleDate] = React.useState(getTodayDate(new Date()));
 
     useEffect(() => {
         const storageNutrients = sessionStorage.getItem('nutrients');
@@ -40,7 +45,7 @@ const MainPage = () => {
                         throw new Error('Ошибка при получении данных пользователя');
                     }
                     setNutrients(result);
-                    sessionStorage.setItem('nutrients', JSON.stringify(result)); // кешируем
+                    sessionStorage.setItem('nutrients', JSON.stringify(result));
                 } catch (error) {
                     console.error('Ошибка:', error);
                     alertify.error('Не удалось загрузить данные пользователя.');
@@ -53,7 +58,7 @@ const MainPage = () => {
     useEffect(() => {
         const storageNutrients = sessionStorage.getItem('dailyNutrients');
         if (storageNutrients) {
-            setDailyNutrients(JSON.parse(storageNutrients)); // исправлено
+            setDailyNutrients(JSON.parse(storageNutrients));
         } else {
             const fetchData = async () => {
                 const token = localStorage.getItem('token');
@@ -62,18 +67,18 @@ const MainPage = () => {
                     return;
                 }
                 try {
-                    const response = await fetch(`http://localhost:4000/dailyNutrients`, {
+                    const response = await fetch(`http://localhost:4000/dailyNutrients?date=${date}`, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${token}`
-                        },
+                        }
                     });
                     const result = await response.json();
                     if (!result.ok) {
                         throw new Error('Ошибка при получении данных пользователя');
                     }
-                    setDailyNutrients(result.data); // исправлено
-                    sessionStorage.setItem('dailyNutrients', JSON.stringify(result.data)); // исправлено
+                    setDailyNutrients(result.data);
+                    sessionStorage.setItem('dailyNutrients', JSON.stringify(result.data));
                 } catch (error) {
                     console.error('Ошибка:', error);
                     alertify.error('Не удалось загрузить данные пользователя.');
@@ -81,7 +86,13 @@ const MainPage = () => {
             };
             fetchData();
         }
-    }, []);
+    }, [date]);
+
+    function getTodayDate(dateObj) {
+        const options = { weekday: "long", day: "2-digit", month: "2-digit" };
+        const formatted = dateObj.toLocaleDateString("ru-RU", options);
+        return formatted.charAt(0).toUpperCase() + formatted.slice(1);
+    }
 
     if (!nutrients || !dailyNutrients || !dailyNutrients.meals) return <LoadingPage />;
 
@@ -104,19 +115,35 @@ const MainPage = () => {
     const fats = dailyNutrients.meals.breakfast.fats + dailyNutrients.meals.dinner.fats + dailyNutrients.meals.lunch.fats;
     const fiber = dailyNutrients.meals.breakfast.fiber + dailyNutrients.meals.dinner.fiber + dailyNutrients.meals.lunch.fiber;
 
-    if (carbGoal + proteinGoal + fatGoal + fiberGoal === 0) {
-            alertify.warning("Хотите перейти к настройке целей по питательным веществам? <b>Перейдите в профиль и нажмите на кнопку 'Настроить цели'.</b>", 5);
-    }
-
     const toSearch = () => {
         window.location.href = '/search';
+    }
+
+    if (carbGoal + proteinGoal + fatGoal + fiberGoal === 0) {
+        alertify.warning("Хотите перейти к настройке целей по питательным веществам? <b>Перейдите в профиль и нажмите на кнопку 'Настроить цели'.</b>", 5);
     }
 
     return (
         <>
         <div className={classes.container}>
             <header className={classes.header}>
-                <h1 className={classes.headerTitle}>{getFormattedDate().charAt().toUpperCase() + getFormattedDate().slice(1)}</h1>
+                <Button onClick={() => {
+                    const newDate = new Date(date);
+                    newDate.setDate(newDate.getDate() - 1);
+                    sessionStorage.removeItem('dailyNutrients');
+                    setTitleDate(getTodayDate(newDate));
+                    setDate(newDate.setHours(0, 0, 0, 0));
+                }
+                }>Вчера</Button>
+                <h1 className={classes.headerTitle}>{titleDate}</h1>
+                <Button onClick={() => {
+                    const newDate = new Date(date);
+                    newDate.setDate(newDate.getDate() + 1);
+                    sessionStorage.removeItem('dailyNutrients');
+                    setTitleDate(getTodayDate(newDate));
+                    setDate(newDate.setHours(0, 0, 0, 0));
+                }
+                }>Сегодня</Button>
             </header>
 
             <main className={classes.main}>

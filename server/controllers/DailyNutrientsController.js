@@ -25,7 +25,6 @@ export const addNutrients = async (req, res) => {
     try {
         let record = await DailyNutrientsModel.findOne({ userId, date: today });
         if (record) {
-            // Добавляем нутриенты в нужный приём пищи
             record.meals[mealType].calories += Number(calories);
             record.meals[mealType].protein += Number(protein);
             record.meals[mealType].carbs += Number(carbs);
@@ -33,7 +32,6 @@ export const addNutrients = async (req, res) => {
             record.meals[mealType].fiber += Number(fiber);
             await record.save();
         } else {
-            // Создаём новый документ с нутриентами только для выбранного приёма пищи
             record = new DailyNutrientsModel({
                 userId,
                 date: today,
@@ -60,6 +58,9 @@ export const addNutrients = async (req, res) => {
 
 export const getNutrients = async (req, res) => {
     const authHeader = req.headers.authorization;
+    const dateParam = req.query.date;
+    const date = dateParam ? new Date(Number(dateParam)) : new Date();
+    date.setHours(0, 0, 0, 0);
     if (!authHeader) return res.status(401).json({ ok: false, error: 'Нет токена' });
 
     const token = authHeader.split(' ')[1];
@@ -71,13 +72,12 @@ export const getNutrients = async (req, res) => {
         return res.status(401).json({ ok: false, error: 'Неверный токен' });
     }
 
-    const today = new Date();
+    const today = date;
     today.setHours(0, 0, 0, 0);
 
     try {
         let record = await DailyNutrientsModel.findOne({ userId, date: today });
         if (!record) {
-            // Возвращаем объект с пустыми приёмами пищи
             record = {
                 meals: {
                     breakfast: { calories: 0, protein: 0, carbs: 0, fats: 0, fiber: 0 },
